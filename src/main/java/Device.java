@@ -24,4 +24,8 @@ public class Device {
     public String getType() {
         return type;
     }
+
+    public float getPrice(){
+        return price;
+    }
 }

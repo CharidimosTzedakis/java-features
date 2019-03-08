@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -79,8 +80,20 @@ public class Application {
         System.out.println(bundles);
 
         /**
-         * TODO: filter by price and print
+         * filter by price and print
+         * */
+        Supplier< ArrayList<Device>> supplier = () -> new ArrayList<Device>();
+        ArrayList<Device> priceHigherThan250 =
+                devicesList
+                        .stream()
+                        .filter( d -> d.getPrice() > 250f)
+                .collect(Collectors.toCollection(supplier));
+        System.out.println("Prices higher than 250:" + priceHigherThan250);
+
+        /**
+         * TODO: partition by price and print
          */
+
 
     }
 }
