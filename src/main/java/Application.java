@@ -91,9 +91,12 @@ public class Application {
         System.out.println("Prices higher than 250:" + priceHigherThan250);
 
         /**
-         * TODO: partition by price and print
+         * partition by price and print
          */
-
-
+        Map<Boolean, List<Device>> expensiveCheap =
+            devicesList
+                    .stream()
+                    .collect(Collectors.partitioningBy(d -> d.getPrice()> 250));
+        System.out.println(expensiveCheap);
     }
 }
